@@ -10,11 +10,15 @@ import { NOWPLAYING_API_URL } from "../constants/constant";
 
 import { Box } from "@mui/material";
 import styled from "@emotion/styled";
+import Slide from "../components/Slide";
 
 const Wrapper = styled(Box)`
   display: flex;
   margin-top: 57px;
-  padding: 20px 46px;
+  padding: 20px 0;
+`;
+const Component = styled(Box)`
+  padding: 46px;
 `;
 
 const Home = () => {
@@ -30,10 +34,19 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Wrapper>
-        <Banner movies={movies} />
-        <UpNext movies={movies} />
-      </Wrapper>
+      <Component>
+        <Wrapper>
+          <Banner movies={movies} />
+          <UpNext movies={movies} />
+        </Wrapper>
+        <Slide movies={movies} />
+        <Slide movies={movies} />
+        <Slide movies={movies} />
+        <Slide movies={movies} />
+        <Slide movies={movies} />
+        <Slide movies={movies} />
+        <Slide movies={movies} />
+      </Component>
     </>
   );
 };
