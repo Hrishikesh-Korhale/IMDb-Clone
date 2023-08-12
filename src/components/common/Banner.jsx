@@ -23,9 +23,16 @@ const BannerIMG = styled("img")({
   width: "100%",
 });
 
+const Container = styled(Box)`
+  width: 65%;
+  @media (max-width: 464px) {
+    width: 100%;
+  }
+`;
+
 const Banner = ({ movies }) => {
   return (
-    <Box style={{ width: "65%" }}>
+    <Container>
       <Carousel
         swipeable={false}
         draggable={false}
@@ -43,7 +50,7 @@ const Banner = ({ movies }) => {
           />
         ))}
       </Carousel>
-    </Box>
+    </Container>
   );
 };
 

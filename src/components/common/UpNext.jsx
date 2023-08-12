@@ -13,6 +13,9 @@ const Component = styled(Box)`
     font-size: 18px;
     margin-buttom: 10px;
   }
+  @media (max-width: 464px) {
+    width: 100%;
+  }
 `;
 const PosterImg = styled("img")({
   width: 88,

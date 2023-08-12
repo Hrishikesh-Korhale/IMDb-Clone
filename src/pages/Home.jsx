@@ -16,6 +16,10 @@ const Wrapper = styled(Box)`
   display: flex;
   margin-top: 57px;
   padding: 20px 0;
+  flex-direction: row;
+  @media (max-width: 464px) {
+    flex-direction: column;
+  }
 `;
 const Component = styled(Box)`
   padding: 46px;

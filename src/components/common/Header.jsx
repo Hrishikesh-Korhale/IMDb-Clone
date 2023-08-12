@@ -10,6 +10,8 @@ import { logoURL } from "../../constants/constant";
 import { BookmarkAdd, ExpandMore, Menu } from "@mui/icons-material";
 import HeaderMenu from "./HeaderMenu";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { routhPath } from "../../constants/routes";
 
 const StyledToolBar = styled(Toolbar)`
   background: #121212;
@@ -56,10 +58,17 @@ const Header = () => {
     setOpen(null);
   };
 
+  const Navigate = useNavigate();
+
   return (
     <AppBar>
       <StyledToolBar>
-        <Logo src={logoURL} alt="logo" />
+        <Logo
+          src={logoURL}
+          alt="logo"
+          onClick={() => Navigate(routhPath.home)}
+          style={{ cursor: "pointer" }}
+        />
         <Box onClick={handleClick}>
           <Menu />
           <Typography>Menu</Typography>
