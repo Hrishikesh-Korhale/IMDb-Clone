@@ -17,7 +17,6 @@ import {
   MovieType,
 } from "../constants/constant";
 import { categoryMovies } from "../services/api";
-import Header from "../components/common/Header";
 import MoviesList from "../components/MoviesList";
 
 const responsive = {
@@ -59,15 +58,18 @@ const ChartsContainer = styled(Box)`
   padding: 10px;
 `;
 
-const CatMovies = () => {
+const CatMovies = ({ setProgress }) => {
   const [movies, setMovies] = useState([]);
 
   const { search } = useLocation();
 
   useEffect(() => {
     const getData = async (API_URL) => {
+      setProgress(30);
       let response = await categoryMovies(API_URL);
+      setProgress(70);
       setMovies(response.results);
+      setProgress(100);
     };
     let API_URL;
 
@@ -80,10 +82,10 @@ const CatMovies = () => {
     }
 
     getData(API_URL);
-  }, [search]);
+  }, [search, setProgress]);
+
   return (
     <Container>
-      <Header />
       <Carousel
         swipeable={false}
         draggable={false}

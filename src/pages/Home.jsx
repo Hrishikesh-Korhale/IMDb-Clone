@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 // Components
-import Header from "../components/common/Header";
 import Banner from "../components/common/Banner";
 import UpNext from "../components/common/UpNext";
 
@@ -25,19 +24,21 @@ const Component = styled(Box)`
   padding: 46px;
 `;
 
-const Home = () => {
+const Home = ({ setProgress }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
+      setProgress(30);
       let response = await categoryMovies(NOWPLAYING_API_URL);
+      setProgress(70);
       setMovies(response.results);
+      setProgress(100);
     };
     getData();
-  }, []);
+  }, [setProgress]);
   return (
     <>
-      <Header />
       <Component>
         <Wrapper>
           <Banner movies={movies} />
