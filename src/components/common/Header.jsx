@@ -43,6 +43,14 @@ const SearchBox = styled(InputBase)`
   height: 30px;
   border-radius: 5px;
 `;
+const Wrapper = styled(Box)`
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 960px) {
+    display: none !important;
+  }
+`;
 
 const Logo = styled("img")({
   width: 62,
@@ -74,19 +82,21 @@ const Header = () => {
           <Typography>Menu</Typography>
         </Box>
         <HeaderMenu open={open} handleClose={handleClose} />
-        <SearchBox />
-        <Typography>
-          IMDb<Box component="span">Pro</Box>
-        </Typography>
-        <Box>
-          <BookmarkAdd />
-          <Typography>Watchlist</Typography>
-        </Box>
-        <Typography>Sign In</Typography>
-        <Box>
-          <Typography>EN</Typography>
-          <ExpandMore />
-        </Box>
+        <Wrapper>
+          <SearchBox />
+          <Typography>
+            IMDb<Box component="span">Pro</Box>
+          </Typography>
+          <Box>
+            <BookmarkAdd />
+            <Typography>Watchlist</Typography>
+          </Box>
+          <Typography>Sign In</Typography>
+          <Box>
+            <Typography>EN</Typography>
+            <ExpandMore />
+          </Box>
+        </Wrapper>
       </StyledToolBar>
     </AppBar>
   );
